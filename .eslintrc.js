@@ -32,14 +32,10 @@ module.exports = {
       "no-console": ["error", { allow: ["tron"] }],
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
-      "react/jsx-props-no-spreading": 'off',
+      "react/jsx-props-no-spreading": "off"
     },
     settings: {
       "import/resolver": {
-        "node": {
-            "paths": ["src"],
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-        },
         "babel-plugin-root-import": {
           rootPathSuffix: "src"
         },
