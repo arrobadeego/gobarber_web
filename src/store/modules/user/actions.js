@@ -4,3 +4,10 @@ export function updateProfileRequest(data) {
         payload: { data },
     };
 }
+
+export function updateProfileSuccess(profile) {
+    return {
+        type: '@ser/UPDATE_PROFILE_SUCCESS',
+        payload: { profile },
+    };
+}
