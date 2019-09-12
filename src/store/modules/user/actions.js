@@ -11,3 +11,9 @@ export function updateProfileSuccess(profile) {
         payload: { profile },
     };
 }
+
+export function updateProfileFailure() {
+    return {
+        type: '@ser/UPDATE_PROFILE_FAILURE',
+    };
+}
