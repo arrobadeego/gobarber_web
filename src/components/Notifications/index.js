@@ -36,6 +36,19 @@ export default function Notifications() {
     function handleToggleVisible() {
         setVisible(!visible);
     }
+
+    async function handleMarkAsRead(id) {
+        await api.put(`notifications/${id}`);
+
+        setNotifications(
+            notifications.map(notification =>
+                notification._id === id
+                    ? { ...notification, read: true }
+                    : notification
+            )
+        );
+    }
+
     return (
         <Container>
             <Badge onClick={handleToggleVisible} hasUnread>
@@ -51,7 +64,14 @@ export default function Notifications() {
                         >
                             <p>{notification.content}</p>
                             <time>{notification.timeDistance}</time>
-                            <button type="button">Marcar como lida</button>
+                            <button
+                                onClick={() =>
+                                    handleMarkAsRead(notification._id)
+                                }
+                                type="button"
+                            >
+                                Marcar como lida
+                            </button>
                         </Notification>
                     ))}
                 </Scroll>
